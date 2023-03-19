@@ -2,9 +2,13 @@ const rockValue = "Rock";
 const paperValue = "Paper";
 const scissorsValue = "Scissors";
 
-const drawValue = "It's a draw!";
-const playerLostValue = "Oh, no, you lost =(";
-const playerWonValue = "Woo-hoo, you won!";
+const drawText = "It's a draw!";
+const playerLostText = "Oh, no, you lost =(";
+const playerWonText = "Woo-hoo, you won!";
+
+const drawResultValue = "Draw";
+const winResultValue = "Win";
+const loseResultValue = "Lose";
 
 let playerChoiceEl = document.querySelector("#playerChoice");
 let computerChoiceEl = document.querySelector("#computerChoice");
@@ -14,67 +18,117 @@ let buttonRock = document.querySelector("#rock");
 let buttonPaper = document.querySelector("#paper");
 let buttonScissors = document.querySelector("#scissors");
 
+// todo to remove
+let scoreResult = document.querySelector("#score");
+// ---
+let playerScore = 0;
+let computerScore = 0;
+
 function computerMakeTurn() {
-  let randomNum = Math.floor(Math.random() * 3);
-  if (randomNum == 0) {
-    computerChoiceEl.innerHTML = rockValue;
-  } else if (randomNum == 1) {
-    computerChoiceEl.innerHTML = paperValue;
-  } else if (randomNum == 2) {
-    computerChoiceEl.innerHTML = scissorsValue;
-  }
+    let randomNum = Math.floor(Math.random() * 3);
+    if (randomNum == 0) {
+        computerChoiceEl.innerHTML = rockValue;
+    } else if (randomNum == 1) {
+        computerChoiceEl.innerHTML = paperValue;
+    } else if (randomNum == 2) {
+        computerChoiceEl.innerHTML = scissorsValue;
+    }
 }
 
+function displayOutcome() {
+    let calculationResult = calculateResult();
+    if (calculationResult == drawResultValue) {
+        resultEl.innerHTML = drawText;
+        scoreResult.innerHTML = `${playerScore} - ${computerScore}`;
+    } else if (calculationResult == winResultValue) {
+        resultEl.innerHTML = playerWonText;
+        playerScore++;
+        scoreResult.innerHTML = `${playerScore} - ${computerScore}`;
+    } else if (calculationResult == loseResultValue) {
+        resultEl.innerHTML = playerWonText;
+        computerScore++;
+        scoreResult.innerHTML = `${playerScore} - ${computerScore}`;
+    }
+}
 buttonRock.addEventListener("click", function () {
-  playerChoiceEl.innerHTML = rockValue;
-  computerMakeTurn();
-  calculateResult();
+    playerChoiceEl.innerHTML = rockValue;
+    computerMakeTurn();
+    displayOutcome();
 });
 
 buttonPaper.addEventListener("click", function () {
-  playerChoiceEl.innerHTML = paperValue;
-  computerMakeTurn();
-  calculateResult();
+    playerChoiceEl.innerHTML = paperValue;
+    computerMakeTurn();
+    displayOutcome();
 });
 
 buttonScissors.addEventListener("click", function () {
-  playerChoiceEl.innerHTML = scissorsValue;
-  computerMakeTurn();
-  calculateResult();
+    playerChoiceEl.innerHTML = scissorsValue;
+    computerMakeTurn();
+    displayOutcome();
 });
 
 function calculateResult() {
-  if (playerChoiceEl.innerHTML == computerChoiceEl.innerHTML) {
-    resultEl.innerHTML = drawValue;
-  } else if (
-    playerChoiceEl.innerHTML == rockValue &&
-    computerChoiceEl.innerHTML == paperValue
-  ) {
-    resultEl.innerHTML = playerLostValue;
-  } else if (
-    playerChoiceEl.innerHTML == rockValue &&
-    computerChoiceEl.innerHTML == scissorsValue
-  ) {
-    resultEl.innerHTML = playerWonValue;
-  } else if (
-    playerChoiceEl.innerHTML == paperValue &&
-    computerChoiceEl.innerHTML == rockValue
-  ) {
-    resultEl.innerHTML = playerWonValue;
-  } else if (
-    playerChoiceEl.innerHTML == paperValue &&
-    computerChoiceEl.innerHTML == scissorsValue
-  ) {
-    resultEl.innerHTML = playerLostValue;
-  } else if (
-    playerChoiceEl.innerHTML == scissorsValue &&
-    computerChoiceEl.innerHTML == rockValue
-  ) {
-    resultEl.innerHTML = playerLostValue;
-  } else if (
-    playerChoiceEl.innerHTML == scissorsValue &&
-    computerChoiceEl.innerHTML == paperValue
-  ) {
-    resultEl.innerHTML = playerWonValue;
-  }
+    let calculationResult;
+
+    if (playerChoiceEl.innerHTML == computerChoiceEl.innerHTML) {
+        calculationResult = drawResultValue;
+    } else if (
+        playerChoiceEl.innerHTML == rockValue &&
+        computerChoiceEl.innerHTML == paperValue
+    ) {
+        calculationResult = loseResultValue;
+    } else if (
+        playerChoiceEl.innerHTML == rockValue &&
+        computerChoiceEl.innerHTML == scissorsValue
+    ) {
+        calculationResult = winResultValue;
+    } else if (
+        playerChoiceEl.innerHTML == paperValue &&
+        computerChoiceEl.innerHTML == rockValue
+    ) {
+        calculationResult = winResultValue;
+    } else if (
+        playerChoiceEl.innerHTML == paperValue &&
+        computerChoiceEl.innerHTML == scissorsValue
+    ) {
+        calculationResult = loseResultValue;
+    } else if (
+        playerChoiceEl.innerHTML == scissorsValue &&
+        computerChoiceEl.innerHTML == rockValue
+    ) {
+        calculationResult = loseResultValue;
+    } else if (
+        playerChoiceEl.innerHTML == scissorsValue &&
+        computerChoiceEl.innerHTML == paperValue
+    ) {
+        calculationResult = winResultValue;
+    }
+    return calculationResult;
 }
+
+// function displayOutcome(calculationResult) {
+//     if (calculationResult == drawResultValue) {
+//         resultEl.innerHTML = drawText;
+//         scoreResult.innerHTML = `${playerScore} - ${computerScore}`;
+//     } else if (calculationResult == winResultValue) {
+//         resultEl.innerHTML = playerWonText;
+//         playerScore++;
+//         scoreResult.innerHTML = `${playerScore} - ${computerScore}`;
+//     } else if (calculationResult == loseResultValue) {
+//         resultEl.innerHTML = playerWonText;
+//         computerScore++;
+//         scoreResult.innerHTML = `${playerScore} - ${computerScore}`;
+//     }
+// }
+
+let newGame = document.querySelector("#reset");
+newGame.addEventListener("click", function () {
+    playerChoiceEl.innerHTML = "";
+    computerChoiceEl.innerHTML = "";
+    resultEl.innerHTML = "";
+    playerScore = 0;
+    computerScore = 0;
+    scoreResult.innerHTML = `${playerScore} - ${computerScore}`;
+    // TODO reset score
+});
