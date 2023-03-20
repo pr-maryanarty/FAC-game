@@ -1,7 +1,40 @@
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
+
 body {
-  background-color: rgb(26, 88, 47);
+    font-family: VT323;
+    background-color: rgb(26, 88, 47);
 }
-.player,
-.computer {
-  display: flex;
+.wrapper {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.result,
+.score {
+    /* display: inline;
+    margin-top: 2rem; */
+    /* display: flex;
+    justify-content: center;  */
+}
+.options {
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    padding: 0;
+    margin: 1rem auto;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
+
+.options:hover {
+    box-shadow: -2px 2px 246px 77px rgba(250, 217, 149, 1);
+    -webkit-box-shadow: -2px 2px 246px 77px rgba(250, 217, 149, 1);
+    -moz-box-shadow: -2px 2px 246px 77px rgba(250, 217, 149, 1);
 }

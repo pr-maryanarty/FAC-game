@@ -1,46 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <title>ROCK, PAPER, SCISSORS</title>
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class="player">
-        <h1>Player:</h1>
-        <h1 id="playerChoice"></h1>
-      </div>
-      <div class="computer">
-        <h1>Computer:</h1>
-        <h1 id="computerChoice"></h1>
-      </div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <script
+            src="https://kit.fontawesome.com/12e3968979.js"
+            crossorigin="anonymous"
+        ></script>
+        <title>ROCK, PAPER, SCISSORS</title>
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="player">
+                <h1>Player:</h1>
+                <h1 id="playerChoice"></h1>
+            </div>
+            <div>
+                <h1>Computer:</h1>
+                <h1 id="computerChoice"></h1>
+            </div>
 
-      <div>
-        <button id="rock" class="options">ROCK</button>
-        <button id="paper" class="options">PAPER</button>
-        <button id="scissors" class="options">SCISSORS</button>
-      </div>
+            <div>
+                <button id="rock" class="options">
+                    <i class="fa-solid fa-mountain fa-2xl"></i>
+                </button>
+                <button id="paper" class="options">
+                    <i class="fa-solid fa-scroll fa-2xl"></i>
+                </button>
+                <button id="scissors" class="options">
+                    <i class="fa-solid fa-scissors fa-2xl"></i>
+                </button>
+            </div>
 
-      <div>
-        <h1>Result:</h1>
-        <h1 id="result"></h1>
-      </div>
-      <!-- <div>
+            <div>
+                <h1 class="result">Result:</h1>
+                <h1 class="result" id="result"></h1>
+            </div>
+            <!-- <div>
         <h1>Score:</h1>
         <h1 id="scorePlayer"></h1>
         <h1 id="separator">-</h1>
         <h1 id="scoreComputer"></h1>
       </div> -->
 
-      <div>
-        <h1>Score:</h1>
-        <h1 id="score"></h1>
-      </div>
-      <div><button id="reset">Reset</button></div>
-    </div>
-    <script src="app.js"></script>
-  </body>
+            <div>
+                <h1 class="score">Score:</h1>
+                <h1 class="score" id="score"></h1>
+            </div>
+            <div><button id="reset">Reset</button></div>
+        </div>
+        <script src="app.js"></script>
+    </body>
 </html>
