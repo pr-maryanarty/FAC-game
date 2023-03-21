@@ -39,15 +39,15 @@ function displayOutcome() {
     let calculationResult = calculateResult();
     if (calculationResult == drawResultValue) {
         resultEl.innerHTML = drawText;
-        scoreResult.innerHTML = `${playerScore} - ${computerScore}`;
+        scoreResult.innerHTML = `Score: ${playerScore} - ${computerScore}`;
     } else if (calculationResult == winResultValue) {
         resultEl.innerHTML = playerWonText;
         playerScore++;
-        scoreResult.innerHTML = `${playerScore} - ${computerScore}`;
+        scoreResult.innerHTML = `Score: ${playerScore} - ${computerScore}`;
     } else if (calculationResult == loseResultValue) {
         resultEl.innerHTML = playerWonText;
         computerScore++;
-        scoreResult.innerHTML = `${playerScore} - ${computerScore}`;
+        scoreResult.innerHTML = `Score: ${playerScore} - ${computerScore}`;
     }
 }
 buttonRock.addEventListener("click", function () {
@@ -107,21 +107,6 @@ function calculateResult() {
     return calculationResult;
 }
 
-// function displayOutcome(calculationResult) {
-//     if (calculationResult == drawResultValue) {
-//         resultEl.innerHTML = drawText;
-//         scoreResult.innerHTML = `${playerScore} - ${computerScore}`;
-//     } else if (calculationResult == winResultValue) {
-//         resultEl.innerHTML = playerWonText;
-//         playerScore++;
-//         scoreResult.innerHTML = `${playerScore} - ${computerScore}`;
-//     } else if (calculationResult == loseResultValue) {
-//         resultEl.innerHTML = playerWonText;
-//         computerScore++;
-//         scoreResult.innerHTML = `${playerScore} - ${computerScore}`;
-//     }
-// }
-
 let newGame = document.querySelector("#reset");
 newGame.addEventListener("click", function () {
     playerChoiceEl.innerHTML = "";
@@ -129,6 +114,6 @@ newGame.addEventListener("click", function () {
     resultEl.innerHTML = "";
     playerScore = 0;
     computerScore = 0;
-    scoreResult.innerHTML = `${playerScore} - ${computerScore}`;
+    scoreResult.innerHTML = `Score: ${playerScore} - ${computerScore}`;
     // TODO reset score
 });
