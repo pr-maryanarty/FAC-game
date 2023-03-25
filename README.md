@@ -33,3 +33,8 @@ Plan JavaScript. On click of one of the buttons, player's choice is displayed in
 On click of reset button game starts from the beginning. All components are cleared.
 
 After the game is played nothing happends unless reset button is clicked.
+
+
+### Debugging:
+
+I used devtools to debug my game. I'd put a "mark" on a line that I'm sure something is wrong with, and run "debugger", then, I'd hover over elements, to see - were they assigned or did the function "enter" the body of the function. My main mistakes were wrong classes or uncorrect parameters of a function. Most answers I got from freecodecamp or stackoverflow. 
